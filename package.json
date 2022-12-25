@@ -8,10 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "next-env": {
+    "development": ".env.development",
+    "production": ".env.production"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@next/font": "^13.1.0",
+    "graphql-request": "^5.1.0",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
