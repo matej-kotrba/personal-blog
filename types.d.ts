@@ -7,7 +7,7 @@ export type ArticleResponse = {
   title: string;
   updatedAt: string;
   content: {
-    html: string;
+    html: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
   }
   image: {
     url: string;

@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <div className={`${roboto.variable} ${roboto.className}`}>
         <Navbar />
-        <Component {...pageProps} />
+        <main className="container grid grid-cols-6 gap-2 p-6 mx-auto rounded-lg mt-[100px]">
+          <Component {...pageProps} />
+        </main>
       </div>
     </>
   );

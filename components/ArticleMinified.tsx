@@ -4,22 +4,14 @@ import styled from "@emotion/styled";
 import useDateFromString from "../hooks/useDateFromString";
 
 const StyledContainer = styled("div")`
-  &::after {
+  &::before {
     content: "";
+    inset: 0;
     position: absolute;
-    width: 40px;
-    height: 300%;
-    background-color: white;
-    filter: blur(20px);
-    opacity: 1;
-    right: 100%;
-    bottom: 100%;
-    rotate: 45deg;
-  }
-
-  &:hover::after {
-    translate: 1000% 100%;
-    transition: 1s ease;
+    z-index: 0;
+    background-color: black;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   & > .span-border {
@@ -90,11 +82,15 @@ function ArticleMinified({
   image,
   categories,
   releaseDate,
+  excerpt,
+  tailwindStyles,
 }: {
   title: string;
   image: string;
   categories: { name: string }[];
   releaseDate: string;
+  excerpt: string;
+  tailwindStyles?: string;
 }) {
   const categoriesString = categories.reduce((prev, item, index) => {
     return index != 0 ? prev + " | " + item.name : item.name;
@@ -104,8 +100,9 @@ function ArticleMinified({
 
   return (
     <StyledContainer
-      className="relative w-full overflow-hidden rounded-md before:content-[''] before:absolute before:inset-0
-    isolate before:z-[0] before:bg-black before:opacity-40 before:pointer-events-none cursor-pointer"
+      className={`relative w-full aspect-video overflow-hidden isolate rounded-md cursor-pointer ${
+        tailwindStyles ? tailwindStyles : ""
+      }`}
     >
       {/* Span for border animation */}
       <span className="span-border"></span>
@@ -119,12 +116,18 @@ function ArticleMinified({
         height={300}
         className="object-cover w-full aspect-video"
       ></Image>
-      <p
-        className="absolute top-[50%] translate-y-[-50%] text-center
-      text-white text-3xl w-full font-bold"
-      >
-        {title}
-      </p>
+      <div className="absolute top-[50%] translate-y-[-50%] w-full text-center px-4 xl:px-12">
+        <p className="overflow-hidden text-3xl font-bold text-white whitespace-nowrap overflow-ellipsis">
+          <abbr title={title} className="no-underline">
+            {title}
+          </abbr>
+        </p>
+        <p className="overflow-hidden text-gray-300 whitespace-nowrap overflow-ellipsis">
+          <abbr title={excerpt} className="no-underline">
+            {excerpt}
+          </abbr>
+        </p>
+      </div>
       <p className="font-light text-white absolute bottom-1 left-[50%] translate-x-[-50%] text-xl">
         {categoriesString}
       </p>

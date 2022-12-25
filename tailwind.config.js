@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         roboto: ["var(--font-roboto)"],
       },
+      aspectRatio: {
+        "aspect3/2": "3/2",
+      },
     },
   },
   plugins: [],

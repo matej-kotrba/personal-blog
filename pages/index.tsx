@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
-import styled from "@emotion/styled";
-import { getAllArticles, getRecentArticles } from "../services";
+import RecentArticlesSidebar from "../components/RecentArticlesSidebar";
+import { getAllPingedArticles, getRecentArticles } from "../services";
 import { ArticleResponse } from "../types";
 import ArticleMinified from "../components/ArticleMinified";
 
-const Home: NextPage<{ articles: ArticleResponse[] }> = ({ articles }) => {
+const Home: NextPage<{
+  recentArticles: ArticleResponse[];
+  pinnedArticles: ArticleResponse[];
+}> = ({ recentArticles, pinnedArticles }) => {
   return (
-    <main className="container mx-auto mt-[100px] grid grid-cols-6 gap-2 p-6 rounded-lg">
+    <>
       <section className="col-span-6 p-6 bg-white rounded-lg lg:col-span-4">
         The pinned articles
-      </section>
-      <section className="flex flex-col col-span-6 gap-4 p-6 bg-white rounded-lg lg:col-span-2">
-        The recent articles
-        {articles.map((item, index) => {
+        {pinnedArticles.map((item, index) => {
           return (
             <ArticleMinified
               key={item.title + index}
@@ -20,22 +20,26 @@ const Home: NextPage<{ articles: ArticleResponse[] }> = ({ articles }) => {
               image={item.image.url}
               categories={item.categories}
               releaseDate={item.publishedAt}
+              excerpt={item.excerpt}
             />
           );
         })}
       </section>
-    </main>
+      <RecentArticlesSidebar recentArticles={recentArticles} />
+    </>
   );
 };
 
 export async function getStaticProps() {
-  // const data: ArticleResponse[] = await getAllArticles();
-  const data: ArticleResponse[] = await getRecentArticles(3);
+  const recentArticles: ArticleResponse[] = await getRecentArticles(3);
+  const pinnedArticles: ArticleResponse[] = await getAllPingedArticles();
 
   return {
     props: {
-      articles: data,
+      recentArticles: recentArticles,
+      pinnedArticles: pinnedArticles,
     },
+    revalidate: 60,
   };
 }
 

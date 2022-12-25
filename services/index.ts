@@ -62,7 +62,37 @@ export const getRecentArticles = async (numberOfPosts: number) => {
 export const getAllPingedArticles = async () => {
   const query = gql`
     query Articles {
-      articles {
+      articles(where: {isPinned: true}, orderBy: publishedAt_DESC) {
+        createdAt
+        excerpt
+        id
+        publishedAt
+        slug
+        title
+        updatedAt
+        content {
+          html
+        }
+        image {
+          url
+        }
+        categories {
+          name
+        }
+      }
+    }
+
+  `
+
+  const results = await request(graphqlURL as string, query);
+  return results.articles
+
+}
+
+export const getSpecificArticle = async (slug: string) => {
+  const query = gql`
+    query Articles($slug: String!) {
+      articles(where: {slug: $slug}) {
         createdAt
         excerpt
         id
@@ -83,7 +113,7 @@ export const getAllPingedArticles = async () => {
     }
   `
 
-  const results = await request(graphqlURL as string, query);
+  const results = await request(graphqlURL as string, query, { slug: slug });
   return results.articles
 
 }
