@@ -3,16 +3,32 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { ArticleResponse } from '../../types'
 import { getRelatedArticles } from '../../services'
 
-export default function handler(
+function parseArray(array: string) {
+  const pomArray = array.split(",")
+
+  for (let i in pomArray) {
+    pomArray[i] = pomArray[i].replace(/\[?\]?/g, "")
+  }
+
+  return pomArray
+}
+
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ArticleResponse>
+  res: NextApiResponse<ArticleResponse[]>
 ) {
-  console.log(req.query.categories)
-  // res.status(200).json({ name: 'John Doe' })
 
-  const categories = req.query.categories || []
+  try {
 
-  getRelatedArticles(req.query.categories, req.query.limit, req.query.id).then()
+    const categories = parseArray(req.query.categories as string) || []
+    const limit = JSON.parse(req.query.limit as string) || 100
+    const id = req.query.id as string || ""
 
-  res.json([])
+    const data: ArticleResponse[] = await getRelatedArticles(categories, limit, id)
+
+    res.status(200).json(data)
+  }
+  catch (e) {
+    res.status(405).end()
+  }
 }

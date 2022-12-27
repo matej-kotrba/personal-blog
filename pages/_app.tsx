@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <div className={`${roboto.variable} ${roboto.className}`}>
         <Navbar />
-        <main className="container grid grid-cols-6 gap-2 p-6 mx-auto rounded-lg mt-[100px]">
+        <main className="container grid grid-cols-6 gap-2 p-1 md:p-3 lg:p-6 mx-auto rounded-lg mt-[100px]">
           <Component {...pageProps} />
         </main>
         <Footer />

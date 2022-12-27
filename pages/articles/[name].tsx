@@ -14,6 +14,7 @@ import {
   ArticleEndingParagraph,
   RelatedArticles,
 } from "../../components";
+import useDateFromString from "../../hooks/useDateFromString";
 
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
@@ -38,10 +39,13 @@ function Article({ article, recentArticles }: ArticleType) {
     Prism.highlightAll();
   });
 
+  const releaseDate = useDateFromString(article.createdAt);
+
   return (
     <>
-      <section className="col-span-4 p-6 bg-white rounded-md max-h-fit">
+      <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit">
         <h2 className="text-3xl font-medium text-black">{article.title}</h2>
+        <span className="text-gray-800">{releaseDate}</span>
         <div className="flex flex-wrap gap-2 my-3">
           {article.categories.map(
             (category: { name: string }, index: number) => {

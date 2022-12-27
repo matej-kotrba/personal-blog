@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getRelatedArticles } from "../services";
 import { ArticleResponse } from "../types";
+import ArticleMinified from "./ArticleMinified";
+import styled from "@emotion/styled";
 
 type RelatedArticlesProps = {
   category: { name: string }[];
@@ -8,13 +9,20 @@ type RelatedArticlesProps = {
   id: string;
 };
 
-const dummyData = [
-  { title: "asdasd" },
-  { title: "asdasd" },
-  { title: "asdasd" },
-  { title: "asdasd" },
-  { title: "asdasd" },
-];
+const StyledRelatedArticles = styled("div")`
+  --tile-size: 350px;
+
+  display: grid;
+  overflow-x: scroll;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--tile-size);
+  scroll-snap-type: x mandatory;
+  gap: 8px;
+
+  & > * {
+    scroll-snap-align: center;
+  }
+`;
 
 function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
   const [relatedArticles, setRelatedArticles] = useState<ArticleResponse[]>([]);
@@ -30,17 +38,52 @@ function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
     });
 
     const data: any = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_ADDRESS}/api/getRelatedArticles?categories=${categories}&limit=${limit}&id=${id}`
+      `/api/getRelatedArticles?categories=[${categories}]&limit=${limit}&id=${id}`
     );
-
-    setRelatedArticles(data);
+    const json = await data.json();
+    setRelatedArticles(json);
   }
 
   return (
     <section>
-      {dummyData.map((item, index) => {
-        return <div key={index}>{item.title}</div>;
-      })}
+      <StyledRelatedArticles>
+        {relatedArticles.map((item, index) => {
+          return (
+            <ArticleMinified
+              title={item.title}
+              categories={item.categories}
+              excerpt={item.excerpt}
+              image={item.image.url}
+              releaseDate={item.createdAt}
+              key={item.title + index}
+            />
+          );
+        })}
+        {relatedArticles.map((item, index) => {
+          return (
+            <ArticleMinified
+              title={item.title}
+              categories={item.categories}
+              excerpt={item.excerpt}
+              image={item.image.url}
+              releaseDate={item.createdAt}
+              key={item.title + index}
+            />
+          );
+        })}
+        {relatedArticles.map((item, index) => {
+          return (
+            <ArticleMinified
+              title={item.title}
+              categories={item.categories}
+              excerpt={item.excerpt}
+              image={item.image.url}
+              releaseDate={item.createdAt}
+              key={item.title + index}
+            />
+          );
+        })}
+      </StyledRelatedArticles>
     </section>
   );
 }

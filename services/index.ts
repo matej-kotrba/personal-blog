@@ -119,7 +119,7 @@ export const getSpecificArticle = async (slug: string) => {
 }
 
 export const getRelatedArticles = async (category: string[], amount: number, id?: string) => {
-  console.log(category, amount, id)
+  // console.log(category, amount, id)
 
   const query = gql`
     query Articles($category: [String]!, $amount: Int!, $id: ID) {
