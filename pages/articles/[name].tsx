@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/no-children-prop */
+import React, { useEffect } from "react";
 import {
   getAllArticles,
   getSpecificArticle,
@@ -8,26 +9,38 @@ import { ArticleResponse } from "../../types";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import RecentArticlesSidebar from "../../components/RecentArticlesSidebar";
+import {
+  RecentArticlesSidebar,
+  ArticleEndingParagraph,
+  RelatedArticles,
+} from "../../components";
 
-const StyledContent = styled("div")`
+import Prism from "prismjs";
+import "prismjs/themes/prism-tomorrow.css";
+require("prismjs/components/prism-jsx");
+require("prismjs/components/prism-tsx");
+
+const StyledContent = styled("article")`
   & > pre {
-    background-color: #efefef;
+    /* background-color: #efefef; */
     padding: 10px;
     border-radius: 15px;
   }
 `;
 
-function Article({
-  article,
-  recentArticles,
-}: {
+type ArticleType = {
   article: ArticleResponse;
   recentArticles: ArticleResponse[];
-}) {
+};
+
+function Article({ article, recentArticles }: ArticleType) {
+  useEffect(() => {
+    Prism.highlightAll();
+  });
+
   return (
     <>
-      <section className="col-span-4 p-6 bg-white rounded-md">
+      <section className="col-span-4 p-6 bg-white rounded-md max-h-fit">
         <h2 className="text-3xl font-medium text-black">{article.title}</h2>
         <div className="flex flex-wrap gap-2 my-3">
           {article.categories.map(
@@ -52,8 +65,17 @@ function Article({
           className="my-5 rounded-lg"
         ></Image>
         <StyledContent
-          dangerouslySetInnerHTML={{ __html: article.content.html }}
+          className={`language-${article.langType}`}
+          dangerouslySetInnerHTML={{
+            __html: article.content.html,
+          }}
         ></StyledContent>
+        <ArticleEndingParagraph />
+        <RelatedArticles
+          category={article.categories}
+          limit={3}
+          id={article.id}
+        />
       </section>
       <RecentArticlesSidebar recentArticles={recentArticles} />
     </>

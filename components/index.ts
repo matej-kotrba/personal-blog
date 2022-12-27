@@ -1,1 +1,5 @@
 export { default as Navbar } from "./Navbar"
+export { default as Footer } from "./Footer"
+export { default as ArticleEndingParagraph } from "./ArticleEndingParagraph"
+export { default as RecentArticlesSidebar } from "./RecentArticlesSidebar"
+export { default as RelatedArticles } from "./RelatedArticles"

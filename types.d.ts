@@ -6,6 +6,7 @@ export type ArticleResponse = {
   slug: string;
   title: string;
   updatedAt: string;
+  langType: "html" | "css" | "jsx" | "tsx" | "js"
   content: {
     html: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
   }
