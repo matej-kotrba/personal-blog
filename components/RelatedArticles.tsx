@@ -1,28 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ArticleResponse } from "../types";
-import ArticleMinified from "./ArticleMinified";
-import styled from "@emotion/styled";
+import { Carousel } from "./";
 
 type RelatedArticlesProps = {
   category: { name: string }[];
   limit: number;
   id: string;
 };
-
-const StyledRelatedArticles = styled("div")`
-  --tile-size: 350px;
-
-  display: grid;
-  overflow-x: scroll;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--tile-size);
-  scroll-snap-type: x mandatory;
-  gap: 8px;
-
-  & > * {
-    scroll-snap-align: center;
-  }
-`;
 
 function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
   const [relatedArticles, setRelatedArticles] = useState<ArticleResponse[]>([]);
@@ -46,44 +30,13 @@ function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
 
   return (
     <section>
-      <StyledRelatedArticles>
-        {relatedArticles.map((item, index) => {
-          return (
-            <ArticleMinified
-              title={item.title}
-              categories={item.categories}
-              excerpt={item.excerpt}
-              image={item.image.url}
-              releaseDate={item.createdAt}
-              key={item.title + index}
-            />
-          );
-        })}
-        {relatedArticles.map((item, index) => {
-          return (
-            <ArticleMinified
-              title={item.title}
-              categories={item.categories}
-              excerpt={item.excerpt}
-              image={item.image.url}
-              releaseDate={item.createdAt}
-              key={item.title + index}
-            />
-          );
-        })}
-        {relatedArticles.map((item, index) => {
-          return (
-            <ArticleMinified
-              title={item.title}
-              categories={item.categories}
-              excerpt={item.excerpt}
-              image={item.image.url}
-              releaseDate={item.createdAt}
-              key={item.title + index}
-            />
-          );
-        })}
-      </StyledRelatedArticles>
+      {relatedArticles.length > 0 ? (
+        <Carousel articles={relatedArticles} />
+      ) : (
+        <p className="text-2xl text-center">
+          Unfortunatly no other articles on this topic exists.
+        </p>
+      )}
     </section>
   );
 }
