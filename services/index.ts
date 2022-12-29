@@ -119,11 +119,14 @@ export const getSpecificArticle = async (slug: string) => {
 }
 
 export const getRelatedArticles = async (category: string[], amount: number, id?: string) => {
-  // console.log(category, amount, id)
 
   const query = gql`
     query Articles($category: [String]!, $amount: Int!, $id: ID) {
-      articles(orderBy: publishedAt_DESC, where: {categories_some: {name_in: $category, id_not: $id}}, first: $amount) {
+      articles(
+        orderBy: publishedAt_DESC
+        where: {categories_some: {name_in: $category}, id_not: $id}
+        first: $amount
+      ) {
         createdAt
         excerpt
         id
@@ -145,6 +148,55 @@ export const getRelatedArticles = async (category: string[], amount: number, id?
     }
   `
 
-  const results = await request(graphqlURL as string, query, { category: ["React"], amount: 2, id: "" });
-  return results.articles
+  const queryWithoutNameIn = gql`
+    query Articles($amount: Int!, $id: ID) {
+      articles(
+        orderBy: publishedAt_DESC
+        where: {id_not: $id}
+        first: $amount
+      ) {
+        createdAt
+        excerpt
+        id
+        publishedAt
+        slug
+        title
+        updatedAt
+        content {
+          html
+        }
+        image {
+          url
+        }
+        categories {
+          name
+        }
+        langType
+      }
+    }
+  `
+
+  let result
+
+  if (category[0]) {
+    result = await request(graphqlURL as string, query, { category: category, amount: amount, id: id || "" });
+  }
+  else {
+    result = await request(graphqlURL as string, queryWithoutNameIn, { amount: amount, id: id || "" });
+  }
+
+  return result.articles
+}
+
+export const getAllCategories = async () => {
+  const query = gql`
+    query MyQuery {
+      categories {
+        name
+      }
+    }
+ `
+
+  const results = await request(graphqlURL as string, query);
+  return results.categories
 }

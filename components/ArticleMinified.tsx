@@ -117,12 +117,12 @@ function ArticleMinified({
         className="object-cover w-full aspect-video"
       ></Image>
       <div className="absolute top-[50%] translate-y-[-50%] w-full text-center px-4 xl:px-12">
-        <p className="overflow-hidden text-3xl font-bold text-white whitespace-nowrap overflow-ellipsis">
+        <p className="overflow-hidden text-2xl font-bold text-white whitespace-nowrap overflow-ellipsis">
           <abbr title={title} className="no-underline">
             {title}
           </abbr>
         </p>
-        <p className="overflow-hidden text-gray-300 whitespace-nowrap overflow-ellipsis">
+        <p className="overflow-hidden text-sm text-gray-300 whitespace-nowrap overflow-ellipsis">
           <abbr title={excerpt} className="no-underline">
             {excerpt}
           </abbr>

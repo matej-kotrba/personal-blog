@@ -1,33 +1,24 @@
 import React from "react";
 import ArticleMinified from "../../components/ArticleMinified";
 import { ArticleResponse } from "../../types";
-import { getAllArticles } from "../../services";
+import { getAllArticles, getAllCategories } from "../../services";
+import { Filter } from "../../components";
 
-function Articles({ allArticles }: { allArticles: ArticleResponse[] }) {
+function Articles({ allCategories }: { allCategories: { name: string }[] }) {
   return (
-    <>
-      {allArticles.map((article, index) => {
-        return (
-          <ArticleMinified
-            key={article.title + index}
-            categories={article.categories}
-            excerpt={article.excerpt}
-            image={article.image.url}
-            releaseDate={article.createdAt}
-            title={article.title}
-            tailwindStyles="col-span-2"
-          />
-        );
-      })}
-    </>
+    <section className="col-span-6 p-6 bg-white rounded-md">
+      <Filter categories={allCategories.map((item) => item.name)} />
+    </section>
   );
 }
 
 export async function getStaticProps() {
-  const data = await getAllArticles();
+  const categoriesPromise = getAllCategories();
+
+  const [categories] = await Promise.all([categoriesPromise]);
 
   return {
-    props: { allArticles: data },
+    props: { allCategories: categories },
   };
 }
 

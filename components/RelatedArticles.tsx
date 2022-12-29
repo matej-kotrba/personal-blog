@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ArticleResponse } from "../types";
-import { Carousel } from "./";
+import { Carousel, Loader } from "./";
+import { useQuery } from "react-query";
 
 type RelatedArticlesProps = {
   category: { name: string }[];
@@ -9,13 +10,6 @@ type RelatedArticlesProps = {
 };
 
 function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
-  const [relatedArticles, setRelatedArticles] = useState<ArticleResponse[]>([]);
-
-  useEffect(() => {
-    fetchRecentArticles();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   async function fetchRecentArticles() {
     const categories: string[] = category.map((item) => {
       return item.name;
@@ -25,13 +19,22 @@ function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
       `/api/getRelatedArticles?categories=[${categories}]&limit=${limit}&id=${id}`
     );
     const json = await data.json();
-    setRelatedArticles(json);
+
+    return json;
   }
+
+  const { isLoading, data, isError } = useQuery(
+    "relatedArticles" + category + id,
+    fetchRecentArticles
+  );
+
+  if (isLoading) return <Loader />;
+  if (isError) return <p>Error appeared during getting data.</p>;
 
   return (
     <section>
-      {relatedArticles.length > 0 ? (
-        <Carousel articles={relatedArticles} />
+      {data.length > 0 ? (
+        <Carousel articles={data} />
       ) : (
         <p className="text-2xl text-center">
           Unfortunatly no other articles on this topic exists.

@@ -39,13 +39,29 @@ const StyledCarousel = styled("div")`
       width: 50px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background-color: #004759;
+      background-color: #006e8a;
       color: white;
       z-index: 2;
       display: grid;
       place-items: center;
       font-size: 2rem;
       cursor: pointer;
+      transition: 0.2s ease;
+
+      &:hover {
+        background-color: #004759;
+      }
+
+      & > * {
+        transition: 0.1s ease;
+      }
+
+      &.left:hover > * {
+        translate: -10% 0;
+      }
+      &.right:hover > * {
+        translate: 10% 0;
+      }
     }
   }
 `;
