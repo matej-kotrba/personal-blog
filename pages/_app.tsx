@@ -4,6 +4,7 @@ import { Navbar } from "../components";
 import { Roboto } from "@next/font/google";
 import { Footer } from "../components";
 import { QueryClient, QueryClientProvider } from "react-query";
+import MainContextWrapper from "../contexts/MainContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,13 +23,15 @@ const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={`${roboto.variable} ${roboto.className}`}>
-        <Navbar />
-        <main className="container grid grid-cols-6 gap-2 p-1 md:p-3 lg:p-6 mx-auto rounded-lg mt-[100px]">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
-      </div>
+      <MainContextWrapper>
+        <div className={`${roboto.variable} ${roboto.className}`}>
+          <Navbar />
+          <main className="container grid grid-cols-6 gap-2 p-1 md:p-3 lg:p-6 mx-auto rounded-lg mt-[100px]">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </div>
+      </MainContextWrapper>
     </QueryClientProvider>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { ArticleResponse } from "../types";
 import { ArticleMinified } from "./";
+import { createArticleLink } from "./ArticleMinified";
 
 type FilterType = {
   categories: string[];
@@ -41,9 +42,9 @@ function Filter({ categories }: FilterType) {
           return (
             <button
               onClick={() => changeCategoryFilter(category)}
-              className={`px-5 py-3 bg-gray-300 rounded-full duration-150 ${
+              className={`px-5 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded-full duration-150 ${
                 selectedCategories.some((item) => item === category)
-                  ? "bg-blue-400 text-white"
+                  ? "bg-blue-400 text-white dark:bg-slate-500"
                   : ""
               }`}
               key={category + index}
@@ -66,6 +67,7 @@ function Filter({ categories }: FilterType) {
                 image={article.image.url}
                 releaseDate={article.createdAt}
                 title={article.title}
+                url={createArticleLink(article.slug)}
               />
             );
           })}

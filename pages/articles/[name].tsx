@@ -43,9 +43,11 @@ function Article({ article, recentArticles }: ArticleType) {
 
   return (
     <>
-      <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit">
-        <h2 className="text-3xl font-medium text-black">{article.title}</h2>
-        <span className="text-gray-800">{releaseDate}</span>
+      <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
+        <h2 className="text-3xl font-medium text-black dark:text-white">
+          {article.title}
+        </h2>
+        <span className="text-gray-800 dark:text-white">{releaseDate}</span>
         <div className="flex flex-wrap gap-2 my-3">
           {article.categories.map(
             (category: { name: string }, index: number) => {
@@ -53,7 +55,7 @@ function Article({ article, recentArticles }: ArticleType) {
                 <Link
                   href={"/articles"}
                   key={category.name + index}
-                  className="px-5 py-2 duration-100 bg-gray-300 rounded-full shadow-md hover:bg-gray-200 hover:scale-105"
+                  className="px-5 py-2 duration-100 bg-gray-300 rounded-full shadow-md dark:bg-gray-600 hover:bg-gray-200 hover:scale-105 dark:text-white dark:hover:bg-gray-500"
                 >
                   {category.name}
                 </Link>
@@ -69,7 +71,7 @@ function Article({ article, recentArticles }: ArticleType) {
           className="my-5 rounded-lg"
         ></Image>
         <StyledContent
-          className={`language-${article.langType}`}
+          className={`language-${article.langType} dark:text-white`}
           dangerouslySetInnerHTML={{
             __html: article.content.html,
           }}

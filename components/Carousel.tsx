@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from "react";
 import styled from "@emotion/styled";
 import { ArticleResponse } from "../types";
-import ArticleMinified from "./ArticleMinified";
+import ArticleMinified, { createArticleLink } from "./ArticleMinified";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
@@ -126,6 +126,7 @@ function Carousel({ articles }: CarouselType) {
               excerpt={item.excerpt}
               image={item.image.url}
               releaseDate={item.createdAt}
+              url={createArticleLink(item.slug)}
               key={item.title + index}
             />
           );

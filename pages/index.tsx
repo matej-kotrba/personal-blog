@@ -2,7 +2,9 @@ import type { NextPage } from "next";
 import RecentArticlesSidebar from "../components/RecentArticlesSidebar";
 import { getAllPingedArticles, getRecentArticles } from "../services";
 import { ArticleResponse } from "../types";
-import ArticleMinified from "../components/ArticleMinified";
+import ArticleMinified, {
+  createArticleLink,
+} from "../components/ArticleMinified";
 
 const Home: NextPage<{
   recentArticles: ArticleResponse[];
@@ -10,7 +12,7 @@ const Home: NextPage<{
 }> = ({ recentArticles, pinnedArticles }) => {
   return (
     <>
-      <section className="col-span-6 p-6 bg-white rounded-lg lg:col-span-4">
+      <section className="col-span-6 p-6 text-gray-900 bg-white rounded-lg dark:text-white dark:bg-slate-800 lg:col-span-4">
         The pinned articles
         {pinnedArticles.map((item, index) => {
           return (
@@ -21,6 +23,7 @@ const Home: NextPage<{
               categories={item.categories}
               releaseDate={item.publishedAt}
               excerpt={item.excerpt}
+              url={createArticleLink(item.slug)}
             />
           );
         })}
