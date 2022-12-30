@@ -44,6 +44,14 @@ function Navbar() {
             >
               Articles
             </Link>
+            <Link
+              href={"/categories"}
+              className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
+        before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
+        before:duration-150 before:ease-in-out"
+            >
+              Categories
+            </Link>
             <DarkModeToggle />
           </div>
         </div>
@@ -71,6 +79,14 @@ function Navbar() {
         before:duration-150 before:ease-in-out"
             >
               Articles
+            </Link>
+            <Link
+              href={"/categories"}
+              className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
+        before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
+        before:duration-150 before:ease-in-out"
+            >
+              Categories
             </Link>
             <DarkModeToggle />
           </div>

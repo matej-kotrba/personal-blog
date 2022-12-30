@@ -176,9 +176,6 @@ export const getRelatedArticles = async (category: string[], amount: number, id?
     }
   `
 
-  category = category.map((item) => {
-    return item.charAt(0).toUpperCase() + item.slice(1)
-  })
   let result
 
   if (category[0]) {
@@ -222,6 +219,5 @@ export const getSpecificCategory = async (slug: string) => {
   `
 
   const results = await request(graphqlURL as string, query, { slug: slug });
-  console.log(results)
-  return results.articles
+  return results.category
 }
