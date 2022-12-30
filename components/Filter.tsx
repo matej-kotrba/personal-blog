@@ -3,6 +3,8 @@ import { useQuery } from "react-query";
 import { ArticleResponse } from "../types";
 import { ArticleMinified } from "./";
 import { createArticleLink } from "./ArticleMinified";
+import { BiTrash } from "react-icons/bi";
+import { Popup } from "./";
 
 type FilterType = {
   categories: string[];
@@ -37,7 +39,12 @@ function Filter({ categories }: FilterType) {
 
   return (
     <>
-      <section className="flex gap-2 mb-4">
+      <section className="flex items-center gap-2 mb-4">
+        <Popup title="Clear all filters">
+          <button onClick={() => setSelectedCategories([])}>
+            <BiTrash className="text-4xl text-slate-800 dark:text-white" />
+          </button>
+        </Popup>
         {categories.map((category, index) => {
           return (
             <button

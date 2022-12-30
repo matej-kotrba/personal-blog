@@ -17,3 +17,10 @@ export type ArticleResponse = {
     name: string
   }[]
 }
+
+export type CategoryResponse = {
+  name: string;
+  color: {
+    hex: `#${string}`
+  }
+}

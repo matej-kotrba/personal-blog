@@ -1,12 +1,12 @@
 import React from "react";
 import { getAllCategories } from "../../services";
-import { Filter } from "../../components";
+import { Filter, FullPageSectionWrapper } from "../../components";
 
 function Articles({ allCategories }: { allCategories: { name: string }[] }) {
   return (
-    <section className="col-span-6 p-6 bg-white rounded-md dark:bg-slate-800">
+    <FullPageSectionWrapper>
       <Filter categories={allCategories.map((item) => item.name)} />
-    </section>
+    </FullPageSectionWrapper>
   );
 }
 

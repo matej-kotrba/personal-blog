@@ -36,7 +36,7 @@ function RelatedArticles({ category, limit, id }: RelatedArticlesProps) {
       {data.length > 0 ? (
         <Carousel articles={data} />
       ) : (
-        <p className="text-2xl text-center">
+        <p className="text-2xl text-center text-slate-800 dark:text-white">
           Unfortunatly no other articles on this topic exists.
         </p>
       )}

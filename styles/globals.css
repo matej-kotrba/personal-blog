@@ -15,3 +15,8 @@ html {
   background-size: cover;
   background-attachment: fixed;
 }
+
+html.dark {
+  background-color: rgba(0, 0, 0, 0.436);
+  background-blend-mode: multiply;
+}
