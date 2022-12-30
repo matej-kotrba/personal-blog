@@ -20,6 +20,7 @@ export type ArticleResponse = {
 
 export type CategoryResponse = {
   name: string;
+  slug: string;
   color: {
     hex: `#${string}`
   }

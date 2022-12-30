@@ -176,6 +176,9 @@ export const getRelatedArticles = async (category: string[], amount: number, id?
     }
   `
 
+  category = category.map((item) => {
+    return item.charAt(0).toUpperCase() + item.slice(1)
+  })
   let result
 
   if (category[0]) {
@@ -193,10 +196,32 @@ export const getAllCategories = async () => {
     query MyQuery {
       categories {
         name
+        slug
+        color {
+          hex
+        }
       }
     }
  `
 
   const results = await request(graphqlURL as string, query);
   return results.categories
+}
+
+export const getSpecificCategory = async (slug: string) => {
+  const query = gql`
+    query Category($slug: String!) {
+      category(where: {slug: $slug}) {
+        color {
+          hex
+        }
+        name
+        slug
+      }
+    }
+  `
+
+  const results = await request(graphqlURL as string, query, { slug: slug });
+  console.log(results)
+  return results.articles
 }
