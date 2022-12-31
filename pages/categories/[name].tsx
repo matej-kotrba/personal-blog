@@ -7,6 +7,8 @@ import {
 } from "../../services";
 import { ArticleResponse, CategoryResponse } from "../../types";
 import { ArticleMinified, RecentArticlesSidebar } from "../../components";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 type CategoryType = {
   relatedArticles: ArticleResponse[];
@@ -19,8 +21,13 @@ function Category({
   categoryData,
   recentArticles,
 }: CategoryType) {
+  const router = useRouter();
+
   return (
     <>
+      <Head>
+        <title>Sealog - {router.query.name}</title>
+      </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h3 className="text-[2rem] text-gray-900 dark:text-white">
           {categoryData.name}

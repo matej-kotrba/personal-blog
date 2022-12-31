@@ -8,12 +8,12 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed z-10 isolate top-0 left-0 w-full px-12 py-6 text-2xl text-white bg-transparent border-b-2 border-white border-solid backdrop-blur-md
+      className="isolate top-0 left-0 w-full px-12 py-6 text-2xl text-white bg-transparent border-b-2 border-white border-solid backdrop-blur-md
     before:content-[''] before:inset-0 before:bg-black before:left-0 before:top-0 before:absolute before:z-[-99] before:opacity-30"
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-5 md:hidden">
-          <p className="font-roboto">MyBlog</p>
+          <p className="font-roboto">Sealog</p>
           <button>
             <GiHamburgerMenu
               className="md:hidden"
@@ -57,7 +57,7 @@ function Navbar() {
         </div>
 
         <div className="items-center justify-between hidden gap-5 mx-auto md:flex">
-          <p className="font-roboto">MyBlog</p>
+          <p className="font-roboto">Sealog</p>
           {/* Other links */}
 
           <div

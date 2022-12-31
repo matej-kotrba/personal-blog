@@ -5,6 +5,7 @@ import { Roboto } from "@next/font/google";
 import { Footer } from "../components";
 import { QueryClient, QueryClientProvider } from "react-query";
 import MainContextWrapper from "../contexts/MainContext";
+import Head from "next/head";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -23,10 +24,32 @@ const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
+      <Head>
+        <title>Sealog</title>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0"
+        ></meta>
+        <meta charSet="utf-8" />
+        <link rel="shortcut icon" href="/imgs/general/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/imgs/general/logo.png"
+          sizes="50x40"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/imgs/general/apple-touch-icon.png"
+          sizes="50x40"
+        ></link>
+      </Head>
       <MainContextWrapper>
-        <div className={`${roboto.variable} ${roboto.className}`}>
+        <div
+          className={`${roboto.variable} ${roboto.className} relative min-h-screen`}
+        >
           <Navbar />
-          <main className="container grid grid-cols-6 gap-2 p-1 md:p-3 lg:p-6 mx-auto rounded-lg mt-[100px]">
+          <main className="container grid grid-cols-6 gap-2 p-1 mx-auto rounded-lg md:p-3 lg:p-6">
             <Component {...pageProps} />
           </main>
           <Footer />

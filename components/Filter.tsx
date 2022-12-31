@@ -5,6 +5,53 @@ import { ArticleMinified } from "./";
 import { createArticleLink } from "./ArticleMinified";
 import { BiTrash } from "react-icons/bi";
 import { Popup } from "./";
+import styled from "@emotion/styled";
+
+const StyledLoader = styled("div")`
+  width: 120px;
+  aspect-ratio: 1/1;
+  background-color: #1e293b;
+  border-radius: 50%;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #333333;
+
+  &::after {
+    content: "";
+    width: 100px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #1e293b;
+  }
+
+  &::before {
+    content: "";
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    background-color: royalblue;
+    transform-origin: left center;
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    /* border-radius: 10px; */
+    animation: rotateAnim 3s linear infinite;
+  }
+
+  @keyframes rotateAnim {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+`;
 
 type FilterType = {
   categories: string[];
@@ -62,7 +109,7 @@ function Filter({ categories }: FilterType) {
         })}
       </section>
       {isLoading === true ? (
-        <p>Loading ...</p>
+        <StyledLoader />
       ) : (
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.map((article: ArticleResponse, index: number) => {

@@ -15,6 +15,8 @@ import {
   RelatedArticles,
 } from "../../components";
 import useDateFromString from "../../hooks/useDateFromString";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
@@ -43,6 +45,9 @@ function Article({ article, recentArticles }: ArticleType) {
 
   return (
     <>
+      <Head>
+        <title>Sealog - {article.title}</title>
+      </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h2 className="text-3xl font-medium text-black dark:text-white">
           {article.title}

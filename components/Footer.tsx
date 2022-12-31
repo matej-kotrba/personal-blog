@@ -4,7 +4,11 @@ import { AiFillGithub } from "react-icons/ai";
 import { RiLinkedinFill } from "react-icons/ri";
 import { VscGithub } from "react-icons/vsc";
 
-const StyledSection = styled("section")`
+const StyledFooter = styled("footer")`
+  position: absolute;
+  top: 100%;
+  width: 100%;
+
   background-color: transparent;
   backdrop-filter: blur(12px);
   border-top: white 2px solid;
@@ -13,7 +17,7 @@ const StyledSection = styled("section")`
 
 function Footer() {
   return (
-    <StyledSection>
+    <StyledFooter>
       <div className="flex flex-wrap items-center gap-3">
         <button className="relative group">
           <RiLinkedinFill className="text-[3rem] duration-150 text-white group-hover:bg-blue-500 rounded-sm cursor-pointer" />
@@ -26,7 +30,7 @@ function Footer() {
           />
         </button>
       </div>
-    </StyledSection>
+    </StyledFooter>
   );
 }
 
