@@ -13,7 +13,7 @@ function Categories({ categories }: CategoriesType) {
   return (
     <>
       <Head>
-        <title>Sealog - Categories</title>
+        <title>Sealblog - Categories</title>
       </Head>
       <FullPageSectionWrapper>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

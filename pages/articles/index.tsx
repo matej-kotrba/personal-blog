@@ -7,7 +7,7 @@ function Articles({ allCategories }: { allCategories: { name: string }[] }) {
   return (
     <>
       <Head>
-        <title>Sealog - Articles</title>
+        <title>Sealblog - Articles</title>
       </Head>
       <FullPageSectionWrapper>
         <Filter categories={allCategories.map((item) => item.name)} />

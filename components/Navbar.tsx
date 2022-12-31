@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiJugglingSeal } from "react-icons/gi";
 
 function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
     <nav
-      className="isolate top-0 left-0 w-full px-12 py-6 text-2xl text-white bg-transparent border-b-2 border-white border-solid backdrop-blur-md
-    before:content-[''] before:inset-0 before:bg-black before:left-0 before:top-0 before:absolute before:z-[-99] before:opacity-30"
+      className="isolate relative top-0 left-0 w-full px-12 py-6 text-2xl text-white bg-transparent border-b-2 border-white border-solid backdrop-blur-md
+    before:content-[''] before:inset-0 before:bg-black before:left-0 before:top-0 before:absolute before:z-[-99] before:opacity-30 z-[100]"
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-5 md:hidden">
-          <p className="font-roboto">Sealog</p>
+          <p className="font-roboto">Sealblog</p>
           <button>
             <GiHamburgerMenu
               className="md:hidden"
@@ -57,7 +57,20 @@ function Navbar() {
         </div>
 
         <div className="items-center justify-between hidden gap-5 mx-auto md:flex">
-          <p className="font-roboto">Sealog</p>
+          <p className="relative mt-10 font-roboto">
+            Sealblog
+            <GiJugglingSeal
+              className="absolute text-[3rem] left-[50%] bottom-[100%] translate-x-[-50%] text-transparent"
+              style={{
+                paintOrder: "stroke",
+                stroke: "white",
+                strokeWidth: "10px",
+                strokeLinecap: "butt",
+                strokeLinejoin: "round",
+                fontWeight: "bold",
+              }}
+            />
+          </p>
           {/* Other links */}
 
           <div

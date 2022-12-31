@@ -26,7 +26,7 @@ function Category({
   return (
     <>
       <Head>
-        <title>Sealog - {router.query.name}</title>
+        <title>Sealblog - {router.query.name}</title>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h3 className="text-[2rem] text-gray-900 dark:text-white">
