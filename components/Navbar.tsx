@@ -6,6 +6,10 @@ import { GiHamburgerMenu, GiJugglingSeal } from "react-icons/gi";
 function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
 
+  function onLinkClick() {
+    setIsOpened(false);
+  }
+
   return (
     <nav
       className="isolate relative top-0 left-0 w-full px-12 py-6 text-2xl text-white bg-transparent border-b-2 border-white border-solid backdrop-blur-md
@@ -30,6 +34,7 @@ function Navbar() {
           >
             <Link
               href={"/"}
+              onClick={onLinkClick}
               className="relative md:ml-auto before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
         before:duration-150 before:ease-in-out"
@@ -38,6 +43,7 @@ function Navbar() {
             </Link>
             <Link
               href={"/articles"}
+              onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
         before:duration-150 before:ease-in-out"
@@ -46,6 +52,7 @@ function Navbar() {
             </Link>
             <Link
               href={"/categories"}
+              onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
         before:duration-150 before:ease-in-out"
