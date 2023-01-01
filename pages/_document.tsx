@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="Blog about web development."></meta>
         <meta
           name="keywords"

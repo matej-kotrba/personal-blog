@@ -1,0 +1,12 @@
+{
+  "short_name": "Sealblog",
+  "name": "Sealblog, blog about web development",
+  "icons": [
+    {
+      "src": "./public/general/logo.png",
+      "sizes": "48x48"
+    }
+  ],
+  "start_url": "/",
+  "display": "browser"
+}

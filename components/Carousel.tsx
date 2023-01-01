@@ -133,10 +133,18 @@ function Carousel({ articles }: CarouselType) {
         })}
       </div>
       <div className="controls">
-        <button className="left" onClick={() => moveCarousel(350)}>
+        <button
+          className="left"
+          name="Move carousel to left"
+          onClick={() => moveCarousel(350)}
+        >
           <MdOutlineArrowBackIos />
         </button>
-        <button className="right" onClick={() => moveCarousel(-350)}>
+        <button
+          className="right"
+          name="Move carousel to right"
+          onClick={() => moveCarousel(-350)}
+        >
           <MdOutlineArrowForwardIos />
         </button>
       </div>

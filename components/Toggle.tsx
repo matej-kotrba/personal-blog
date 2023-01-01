@@ -14,6 +14,7 @@ function Toggle({ initialToggle, fnc }: ToggleType) {
 
   return (
     <button
+      name="Switch toggle"
       onClick={() => {
         setIsToggled((old) => !old);
         fnc();

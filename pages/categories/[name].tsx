@@ -27,6 +27,10 @@ function Category({
     <>
       <Head>
         <title>Sealblog - {router.query.name}</title>
+        <meta
+          name="description"
+          content={`${router.query.name} page about it and articles connected to it.`}
+        ></meta>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h3 className="text-[2rem] text-gray-900 dark:text-white">

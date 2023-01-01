@@ -88,13 +88,17 @@ function Filter({ categories }: FilterType) {
     <>
       <section className="flex items-center gap-2 mb-4">
         <Popup title="Clear all filters">
-          <button onClick={() => setSelectedCategories([])}>
+          <button
+            name="Clear all filters"
+            onClick={() => setSelectedCategories([])}
+          >
             <BiTrash className="text-4xl text-slate-800 dark:text-white" />
           </button>
         </Popup>
         {categories.map((category, index) => {
           return (
             <button
+              name={`Filter articles by ${category} category`}
               onClick={() => changeCategoryFilter(category)}
               className={`px-5 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded-full duration-150 ${
                 selectedCategories.some((item) => item === category)

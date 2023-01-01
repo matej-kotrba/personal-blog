@@ -8,6 +8,10 @@ function Articles({ allCategories }: { allCategories: { name: string }[] }) {
     <>
       <Head>
         <title>Sealblog - Articles</title>
+        <meta
+          name="description"
+          content="Sealblog articles page with filter options for all categories you can find on this site."
+        ></meta>
       </Head>
       <FullPageSectionWrapper>
         <Filter categories={allCategories.map((item) => item.name)} />

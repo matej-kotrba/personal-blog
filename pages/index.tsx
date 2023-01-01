@@ -5,6 +5,7 @@ import { ArticleResponse } from "../types";
 import ArticleMinified, {
   createArticleLink,
 } from "../components/ArticleMinified";
+import Head from "next/head";
 
 const Home: NextPage<{
   recentArticles: ArticleResponse[];
@@ -12,6 +13,12 @@ const Home: NextPage<{
 }> = ({ recentArticles, pinnedArticles }) => {
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Sealblog homepage with pinned and recent articles."
+        ></meta>
+      </Head>
       <section className="col-span-6 p-6 text-gray-900 bg-white rounded-lg dark:text-white dark:bg-slate-800 lg:col-span-4">
         <p className="text-[2.5rem]">Welcome</p>
         <p className="mb-4 text-lg">
