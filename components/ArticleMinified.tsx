@@ -104,7 +104,7 @@ function ArticleMinified({
   const dateResult = useDateFromString(releaseDate);
 
   return (
-    <Link href={url}>
+    <Link href={url} aria-label={`Read more about ${title}`}>
       <StyledContainer
         className={`relative w-full aspect-video overflow-hidden isolate rounded-md cursor-pointer ${
           tailwindStyles ? tailwindStyles : ""

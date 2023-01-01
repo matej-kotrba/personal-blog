@@ -26,6 +26,7 @@ function Categories({ categories }: CategoriesType) {
 
             return (
               <Link
+                aria-label={`Read more about ${category.name}`}
                 href={"/categories/" + category.slug}
                 key={category.name + index}
                 className={`relative p-5 overflow-hidden text-2xl font-bold text-center text-black border-2

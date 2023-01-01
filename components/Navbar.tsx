@@ -33,6 +33,7 @@ function Navbar() {
            }`}
           >
             <Link
+              aria-label={`Visit homepage`}
               href={"/"}
               onClick={onLinkClick}
               className="relative md:ml-auto before:content-[''] before:absolute before:left-[50%] before:top-full
@@ -42,6 +43,7 @@ function Navbar() {
               Home
             </Link>
             <Link
+              aria-label={`Visit articles page`}
               href={"/articles"}
               onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
@@ -51,6 +53,7 @@ function Navbar() {
               Articles
             </Link>
             <Link
+              aria-label={`Visit categories page`}
               href={"/categories"}
               onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
@@ -85,6 +88,7 @@ function Navbar() {
            md:top-0 bg-slate-900 md:bg-transparent w-full text-center items-center rounded-b-md p-3 md:p-0`}
           >
             <Link
+              aria-label={`Visit homepage`}
               href={"/"}
               className="relative md:ml-auto before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
@@ -93,6 +97,7 @@ function Navbar() {
               Home
             </Link>
             <Link
+              aria-label={`Visit articles page`}
               href={"/articles"}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
@@ -101,6 +106,7 @@ function Navbar() {
               Articles
             </Link>
             <Link
+              aria-label={`Visit categories page`}
               href={"/categories"}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]

@@ -59,6 +59,7 @@ function Article({ article, recentArticles }: ArticleType) {
             (category: { name: string }, index: number) => {
               return (
                 <Link
+                  aria-label={`Read more about ${category.name}`}
                   href={"/categories/" + category.name.toLowerCase()}
                   key={category.name + index}
                   className="px-5 py-2 duration-100 bg-gray-300 rounded-full shadow-md dark:bg-gray-600 hover:bg-gray-200 hover:scale-105 dark:text-white dark:hover:bg-gray-500"

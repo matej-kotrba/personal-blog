@@ -21,6 +21,7 @@ function Footer() {
     <StyledFooter>
       <div className="flex flex-wrap items-center gap-3">
         <Link
+          aria-label={`Visit my LinkedIn profile`}
           href={"https://www.linkedin.com/in/matej-kotrba/"}
           target="_blank"
           referrerPolicy="no-referrer"
@@ -29,6 +30,7 @@ function Footer() {
           <RiLinkedinFill className="text-[3rem] duration-150 text-white group-hover:bg-blue-500 rounded-sm cursor-pointer" />
         </Link>
         <Link
+          aria-label={`Visit my GitHub profile`}
           href={"https://github.com/mkit2009"}
           target="_blank"
           referrerPolicy="no-referrer"
