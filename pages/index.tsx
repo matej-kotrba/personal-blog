@@ -18,7 +18,7 @@ const Home: NextPage<{
           to my personal blog about web development.
         </p>
 
-        <p className="text-lg">Inspect pinned articles</p>
+        <p className="mb-4 text-lg">Inspect pinned articles</p>
         {pinnedArticles.map((item, index) => {
           return (
             <ArticleMinified

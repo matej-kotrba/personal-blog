@@ -18,7 +18,7 @@ function Navbar() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-5 md:hidden">
           <p className="font-roboto">Sealblog</p>
-          <button>
+          <button name="Collapsible hamburger">
             <GiHamburgerMenu
               className="md:hidden"
               onClick={() => setIsOpened((old) => !old)}
