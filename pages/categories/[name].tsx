@@ -33,9 +33,9 @@ function Category({
         ></meta>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
-        <h3 className="text-[2rem] text-gray-900 dark:text-white">
+        <h2 className="text-[2rem] text-gray-900 dark:text-white">
           {categoryData.name}
-        </h3>
+        </h2>
         <div className="grid grid-cols-3 gap-2">
           {relatedArticles.map((article, index) => {
             return (

@@ -20,12 +20,10 @@ const Home: NextPage<{
         ></meta>
       </Head>
       <section className="col-span-6 p-6 text-gray-900 bg-white rounded-lg dark:text-white dark:bg-slate-800 lg:col-span-4">
-        <p className="text-[2.5rem]">Welcome</p>
-        <p className="mb-4 text-lg">
-          to my personal blog about web development.
-        </p>
+        <h1 className="text-[2.5rem]">Welcome to Sealblog</h1>
+        <p className="mb-4 text-lg">my personal blog about web development.</p>
 
-        <p className="mb-4 text-lg">Inspect pinned articles</p>
+        <h3 className="mb-4 text-lg">Inspect pinned articles</h3>
         {pinnedArticles.map((item, index) => {
           return (
             <ArticleMinified

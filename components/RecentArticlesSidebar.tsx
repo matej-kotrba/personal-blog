@@ -9,7 +9,7 @@ type RecentArticlesSidebarType = {
 function RecentArticlesSidebar({ recentArticles }: RecentArticlesSidebarType) {
   return (
     <aside className="flex flex-col col-span-6 gap-4 p-6 bg-white rounded-lg dark:bg-slate-800 lg:col-span-2 dark:text-white">
-      <p className="text-lg">Here are some recent articles</p>
+      <h3 className="text-lg">Here are some recent articles</h3>
       {recentArticles.map(
         ({ title, image, categories, publishedAt, excerpt, slug }, index) => {
           return (
