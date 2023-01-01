@@ -12,14 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/googleverification/:id",
-        destination: "/static/googleverification/:id",
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

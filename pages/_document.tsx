@@ -4,6 +4,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta
+          name="google-site-verification"
+          content="dmchR1iKrhkYVD5fr6SeKdMuAadSjsiEbmRXWw8bM6U"
+        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="Blog about web development."></meta>
         <meta
