@@ -42,11 +42,12 @@ function Article({ article, recentArticles }: ArticleType) {
   });
 
   const releaseDate = useDateFromString(article.createdAt);
+  const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - ${article.title}`;
 
   return (
     <>
       <Head>
-        <title>Sealblog - {article.title}</title>
+        <title>{title}</title>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h2 className="text-3xl font-medium text-black dark:text-white">

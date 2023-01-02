@@ -17,7 +17,7 @@ function Navbar() {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-5 md:hidden">
-          <p className="font-roboto">Sealblog</p>
+          <p className="font-roboto">{process.env.NEXT_PUBLIC_WEBSITE_TITLE}</p>
           <button name="Collapsible hamburger">
             <GiHamburgerMenu
               className="md:hidden"
@@ -68,7 +68,7 @@ function Navbar() {
 
         <div className="items-center justify-between hidden gap-5 mx-auto md:flex">
           <p className="relative mt-10 font-roboto">
-            Sealblog
+            {process.env.NEXT_PUBLIC_WEBSITE_TITLE}
             <GiJugglingSeal
               className="absolute text-[3rem] left-[50%] bottom-[100%] translate-x-[-50%] text-transparent"
               style={{

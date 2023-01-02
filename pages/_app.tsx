@@ -9,7 +9,7 @@ import Head from "next/head";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["100", "400", "700"],
+  weight: ["100", "400", "700", "900"],
   variable: "--font-roboto",
 });
 
@@ -22,10 +22,12 @@ const queryClient = new QueryClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - Blog about web development`;
+
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>Sealblog - Blog about web development</title>
+        <title>{title}</title>
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1.0"

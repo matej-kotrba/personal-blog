@@ -10,10 +10,12 @@ type CategoriesType = {
 };
 
 function Categories({ categories }: CategoriesType) {
+  const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - Categories`;
+
   return (
     <>
       <Head>
-        <title>Sealblog - Categories</title>
+        <title>{title}</title>
       </Head>
       <FullPageSectionWrapper>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -23,10 +23,12 @@ function Category({
 }: CategoryType) {
   const router = useRouter();
 
+  const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - ${router.query.name}`;
+
   return (
     <>
       <Head>
-        <title>Sealblog - {router.query.name}</title>
+        <title>{title}</title>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h2 className="text-[2rem] text-gray-900 dark:text-white">

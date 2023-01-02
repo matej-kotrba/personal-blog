@@ -5,6 +5,7 @@ import { ArticleResponse } from "../types";
 import ArticleMinified, {
   createArticleLink,
 } from "../components/ArticleMinified";
+import TitleHeading from "../components/TitleHeading";
 import Link from "next/link";
 
 const Home: NextPage<{
@@ -13,10 +14,8 @@ const Home: NextPage<{
 }> = ({ recentArticles, pinnedArticles }) => {
   return (
     <>
+      <TitleHeading />
       <section className="col-span-6 p-6 text-gray-900 bg-white rounded-lg dark:text-white dark:bg-slate-800 lg:col-span-4">
-        <h1 className="text-[2rem] mb-4">
-          Welcome to my personal blog about web development
-        </h1>
         <p className="text-lg">
           Here you can read through <Link href={"/articles"}>articles</Link>,{" "}
           <Link href={"/categories"}>categories</Link>, tips and more.

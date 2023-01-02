@@ -4,10 +4,12 @@ import { Filter, FullPageSectionWrapper } from "../../components";
 import Head from "next/head";
 
 function Articles({ allCategories }: { allCategories: { name: string }[] }) {
+  const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - Articles`;
+
   return (
     <>
       <Head>
-        <title>Sealblog - Articles</title>
+        <title>{title}</title>
       </Head>
       <FullPageSectionWrapper>
         <Filter categories={allCategories.map((item) => item.name)} />
