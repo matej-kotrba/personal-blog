@@ -43,7 +43,6 @@ function Article({ article, recentArticles }: ArticleType) {
 
   const releaseDate = useDateFromString(article.createdAt);
   const title = `${process.env.NEXT_PUBLIC_WEBSITE_TITLE} - ${article.title}`;
-
   return (
     <>
       <Head>
