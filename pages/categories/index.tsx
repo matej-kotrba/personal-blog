@@ -14,10 +14,6 @@ function Categories({ categories }: CategoriesType) {
     <>
       <Head>
         <title>Sealblog - Categories</title>
-        <meta
-          name="description"
-          content="Sealblog categories page where you can find all articles available on this site."
-        ></meta>
       </Head>
       <FullPageSectionWrapper>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

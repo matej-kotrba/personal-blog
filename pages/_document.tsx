@@ -9,7 +9,10 @@ export default function Document() {
           content="dmchR1iKrhkYVD5fr6SeKdMuAadSjsiEbmRXWw8bM6U"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="Blog about web development."></meta>
+        <meta
+          name="description"
+          content="Blog about web development technologies, tips and more. Read useful articles about React, CSS, Typescript and more."
+        ></meta>
         <meta
           name="keywords"
           content="Blog, Sealblog, Matěj Kotrba, Matej Kotrba, matej kotrba"
@@ -22,6 +25,7 @@ export default function Document() {
           property="og:description"
           content="Web development articles and tips."
         />
+        <meta property="og:image" content="/imgs/general/logo.png" />
       </Head>
       <body>
         <Main />

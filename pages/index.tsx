@@ -5,7 +5,7 @@ import { ArticleResponse } from "../types";
 import ArticleMinified, {
   createArticleLink,
 } from "../components/ArticleMinified";
-import Head from "next/head";
+import Link from "next/link";
 
 const Home: NextPage<{
   recentArticles: ArticleResponse[];
@@ -13,15 +13,25 @@ const Home: NextPage<{
 }> = ({ recentArticles, pinnedArticles }) => {
   return (
     <>
-      <Head>
-        <meta
-          name="description"
-          content="Sealblog homepage with pinned and recent articles."
-        ></meta>
-      </Head>
       <section className="col-span-6 p-6 text-gray-900 bg-white rounded-lg dark:text-white dark:bg-slate-800 lg:col-span-4">
-        <h1 className="text-[2.5rem]">Welcome to Sealblog</h1>
-        <p className="mb-4 text-lg">my personal blog about web development.</p>
+        <h1 className="text-[2rem] mb-4">
+          Welcome to my personal blog about web development
+        </h1>
+        <p className="text-lg">
+          Here you can read through <Link href={"/articles"}>articles</Link>,{" "}
+          <Link href={"/categories"}>categories</Link>, tips and more.
+        </p>
+        <p>
+          Find your favorite categories:
+          <Link href="/categories">Visit categories page</Link>
+        </p>
+        <p>
+          Get the article you want:
+          <Link href="/categories">Visit articles page</Link>
+        </p>
+        {/* <p className="mb-4 text-lg">
+          take a look on pinned and recent articles
+        </p> */}
 
         <h3 className="mb-4 text-lg">Inspect pinned articles</h3>
         {pinnedArticles.map((item, index) => {

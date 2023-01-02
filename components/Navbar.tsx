@@ -17,7 +17,7 @@ function Navbar() {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-5 md:hidden">
-          <h1 className="font-roboto">Sealblog</h1>
+          <p className="font-roboto">Sealblog</p>
           <button name="Collapsible hamburger">
             <GiHamburgerMenu
               className="md:hidden"
@@ -38,7 +38,7 @@ function Navbar() {
               onClick={onLinkClick}
               className="relative md:ml-auto before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Home
             </Link>
@@ -48,7 +48,7 @@ function Navbar() {
               onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Articles
             </Link>
@@ -58,7 +58,7 @@ function Navbar() {
               onClick={onLinkClick}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Categories
             </Link>
@@ -92,7 +92,7 @@ function Navbar() {
               href={"/"}
               className="relative md:ml-auto before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Home
             </Link>
@@ -101,7 +101,7 @@ function Navbar() {
               href={"/articles"}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Articles
             </Link>
@@ -110,7 +110,7 @@ function Navbar() {
               href={"/categories"}
               className="relative before:content-[''] before:absolute before:left-[50%] before:top-full
         before:translate-x-[-50%] before:h-1 before:w-4 before:bg-white before:rounded-md hover:before:w-[105%]
-        before:duration-150 before:ease-in-out"
+        before:duration-150 before:ease-in-out text-white"
             >
               Categories
             </Link>

@@ -47,7 +47,6 @@ function Article({ article, recentArticles }: ArticleType) {
     <>
       <Head>
         <title>Sealblog - {article.title}</title>
-        <meta name="description" content={`${article.title} page`}></meta>
       </Head>
       <section className="col-span-6 p-6 bg-white rounded-md lg:col-span-4 max-h-fit dark:bg-slate-800">
         <h2 className="text-3xl font-medium text-black dark:text-white">

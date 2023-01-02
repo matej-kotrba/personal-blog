@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>Sealblog</title>
+        <title>Sealblog - Blog about web development</title>
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1.0"

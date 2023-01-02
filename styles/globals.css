@@ -20,3 +20,14 @@ html.dark {
   background-color: rgba(0, 0, 0, 0.436);
   background-blend-mode: multiply;
 }
+
+a {
+  position: relative;
+  color: rgb(72, 148, 255);
+}
+
+a::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+}
