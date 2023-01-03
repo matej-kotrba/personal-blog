@@ -116,19 +116,25 @@ function Filter({ categories }: FilterType) {
         <StyledLoader />
       ) : (
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map((article: ArticleResponse, index: number) => {
-            return (
-              <ArticleMinified
-                key={article.title + index}
-                categories={article.categories}
-                excerpt={article.excerpt}
-                image={article.image.url}
-                releaseDate={article.createdAt}
-                title={article.title}
-                url={createArticleLink(article.slug)}
-              />
-            );
-          })}
+          {data.length !== 0 ? (
+            data.map((article: ArticleResponse, index: number) => {
+              return (
+                <ArticleMinified
+                  key={article.title + index}
+                  categories={article.categories}
+                  excerpt={article.excerpt}
+                  image={article.image.url}
+                  releaseDate={article.createdAt}
+                  title={article.title}
+                  url={createArticleLink(article.slug)}
+                />
+              );
+            })
+          ) : (
+            <p className="text-2xl text-slate-900 dark:text-white">
+              No articles were found :/
+            </p>
+          )}
         </div>
       )}
     </>
