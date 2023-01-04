@@ -132,7 +132,7 @@ function Filter({ categories }: FilterType) {
             })
           ) : (
             <p className="text-2xl text-slate-900 dark:text-white">
-              No articles were found :/
+              No article with this filter was found :/
             </p>
           )}
         </div>
