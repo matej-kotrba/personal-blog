@@ -4,6 +4,7 @@ import {
   getAllArticles,
   getSpecificArticle,
   getRecentArticles,
+  getRelatedArticles,
 } from "../../services";
 import { ArticleResponse } from "../../types";
 import Image from "next/image";
@@ -16,7 +17,6 @@ import {
 } from "../../components";
 import useDateFromString from "../../hooks/useDateFromString";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
@@ -34,9 +34,10 @@ const StyledContent = styled("article")`
 type ArticleType = {
   article: ArticleResponse;
   recentArticles: ArticleResponse[];
+  relatedArticles: ArticleResponse[];
 };
 
-function Article({ article, recentArticles }: ArticleType) {
+function Article({ article, recentArticles, relatedArticles }: ArticleType) {
   useEffect(() => {
     Prism.highlightAll();
   });
@@ -83,11 +84,7 @@ function Article({ article, recentArticles }: ArticleType) {
           }}
         ></StyledContent>
         <ArticleEndingParagraph />
-        <RelatedArticles
-          category={article.categories}
-          limit={3}
-          id={article.id}
-        />
+        <RelatedArticles articles={relatedArticles} />
       </section>
       <RecentArticlesSidebar recentArticles={recentArticles} />
     </>
@@ -108,11 +105,17 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
   const recentArticles: ArticleResponse[] = await getRecentArticles(3);
   const article: ArticleResponse[] = await getSpecificArticle(params.name);
+  const relatedArticles: ArticleResponse[] = await getRelatedArticles(
+    article[0].categories.map((category) => category.name),
+    5,
+    article[0].id
+  );
 
   return {
     props: {
       article: article[0],
       recentArticles: recentArticles,
+      relatedArticles: relatedArticles,
     },
     revalidate: 60,
   };
