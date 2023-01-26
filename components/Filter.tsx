@@ -39,7 +39,6 @@ const StyledLoader = styled("div")`
     background-color: royalblue;
     transform-origin: left center;
     clip-path: polygon(0 50%, 100% 100%, 100% 0);
-    /* border-radius: 10px; */
     animation: rotateAnim 3s linear infinite;
   }
 
