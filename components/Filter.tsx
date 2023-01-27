@@ -7,6 +7,7 @@ import { BiTrash } from "react-icons/bi";
 import { Popup } from "./";
 import styled from "@emotion/styled";
 
+// Styles for loader
 const StyledLoader = styled("div")`
   width: 120px;
   aspect-ratio: 1/1;
