@@ -25,7 +25,6 @@ require("prismjs/components/prism-tsx");
 
 const StyledContent = styled("article")`
   & > pre {
-    /* background-color: #efefef; */
     padding: 10px;
     border-radius: 15px;
   }
