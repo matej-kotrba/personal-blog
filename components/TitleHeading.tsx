@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+// Heading styles
 const StyledHeading = styled("h1")`
   --header-anim-duration: 1s;
 
