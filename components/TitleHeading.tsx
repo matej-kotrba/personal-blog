@@ -53,7 +53,7 @@ const StyledHeading = styled("h1")`
 function TitleHeading() {
   return (
     <div className="col-span-6 text-center text-white">
-      <StyledHeading>Find yours topic</StyledHeading>
+      <StyledHeading>Find your topic</StyledHeading>
       <p className="text-lg">with {process.env.NEXT_PUBLIC_WEBSITE_TITLE}</p>
     </div>
   );
